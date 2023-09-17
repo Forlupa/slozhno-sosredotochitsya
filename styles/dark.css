@@ -1,12 +1,29 @@
-/*
-  Специально для тёмной темы при наличии класса,
-  здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
 .page.theme_dark {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --paragraph-color: #f1b2ce;
+    --title-color: #db00ff;
+    --accent-color: #ff0070;
+    --background-color: #000028;
+    --background-image: url(../images/cover-image-dark.png);
+    --subtitle-color: var(--background-color);
+    --main-title-color: var(--accent-color);
+    --rec: block;
+    --corners-color: var(--accent-color);
+    --buttons-color: var(--accent-color);
+    --hover-button-color: 1px solid rgba(255, 0, 112, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paragraph-color: #f1b2ce;
+    --title-color: #db00ff;
+    --accent-color: #ff0070;
+    --background-color: #000028;
+    --background-image: url(../images/cover-image-dark.png);
+    --subtitle-color: var(--background-color);
+    --main-title-color: var(--accent-color);
+    --rec: block;
+    --corners-color: var(--accent-color);
+    --buttons-color: var(--accent-color);
+    --hover-button-color: 1px solid rgba(255, 0, 112, 0.4);
+  }
 }
