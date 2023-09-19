@@ -7,6 +7,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: var(--background-color);
+  width: 100%;
 }
 
 /*стили для шапки*/
@@ -16,6 +17,7 @@
   padding: 20px 20px 20px 0;
   grid-template-rows: 299px 0 min-content 299px;
   position: relative;
+  height: 100vh;
 }
 
 .title-decor {
@@ -24,8 +26,8 @@
 
 .title {
   color: var(--title-color);
-  text-shadow: 4px 4px 0 var(--accent-color);
-  font-family: 'IBM Plex mono';
+  text-shadow: 4px 4px 0 var(--large-title-shadow);
+  font-family: var(--font);
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
   font-style: normal;
   font-weight: 700;
@@ -34,7 +36,7 @@
 
 .header__subtitle {
   color: var(--subtitle-color);
-  font-family: 'IBM Plex mono';
+  font-family: var(--font);
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -51,6 +53,7 @@
 .header__theme-menu {
   display: flex;
   justify-content: center;
+  padding-left: 20px;
 }
 
 .header__theme-menu-list {
@@ -64,12 +67,13 @@
   border: none;
   color: var(--buttons-color);
   text-align: center;
-  font-family: 'IBM Plex Mono';
+  font-family: var(--font);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 100%; 
   text-transform: lowercase;
+  padding: 3px 13px;
 }
 
 .header__theme-menu-button_active {
@@ -86,7 +90,7 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  border-bottom: var(--hover-button-color);
+  border-bottom: 1px solid var(--buttons-color);
 }
 
 /*стили для декора*/
@@ -96,7 +100,7 @@
   display: var(--rec);
   color: var(--accent-color);
   text-align: center;
-  font-family: "IBM Plex Mono";
+  font-family: var(--font);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -118,7 +122,7 @@
   top: 28px;
   right: 29px;
   border-radius: 50%;
-  box-shadow: 0px 0px 4px 3px var(--accent-color)
+  box-shadow: 0px 0px 4px 3px var(--accent-color);
 }
 
 .decorated-zone::before {
@@ -165,7 +169,7 @@
 }
 
 .main {
-  font-family: "IBM Plex Mono";
+  font-family: var(--font);
   font-size: 18px;
   line-height: 130%;
   font-style: normal;
@@ -180,9 +184,13 @@
 
 .why {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 20px;
+}
+
+.why__container {
+  grid-column: span 2;
 }
 
 .main__title {
@@ -197,6 +205,7 @@
 }
 
 .main__subtitle {
+  color: var(--subtitle-color);
   font-weight: 700;
   font-size: 18px;
 }
@@ -223,11 +232,12 @@
 .what__title {
   grid-column-start: 1;
   grid-column-end: 4;
+  max-width: 315px;
 }
 
 .how {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
 
@@ -240,6 +250,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  grid-column: span 2;
 }
 
 .gallery {
@@ -311,12 +322,17 @@
   padding: 319px 20px;
   position: relative;
   justify-content: center;
+  height: 100vh;
 }
 
-@media screen and (max-width: 768px) {
+@media (width <= 1023px) {
   .header {
     padding: 20px 20px 20px 0;
-    grid-template-rows: 443px 0 min-content 443px;
+    grid-template-rows: calc((100vh - 99px) / 2 - 20px) 0 min-content calc((100vh - 99px) / 2 - 20px); 
+  }
+
+  .title{
+    text-shadow: 4px 4px 0 var(--accent-color);
   }
 
   .header__subtitle {
@@ -336,6 +352,19 @@
     gap: 13px;
   }
 
+  .why {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  
+  .why__container {
+    grid-column: span 1;
+  }
+
+  .how__container {
+    grid-column: span 1;
+  }
+
   .what {
     display: grid;
     grid-template-columns: 1fr;
@@ -348,6 +377,10 @@
     grid-column-end: 1;
     max-width: 236px;
   }
+
+  .how {
+    grid-template-columns: 1fr 2fr;
+  }
   
 
   .footer {
@@ -355,15 +388,15 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .page {
-    max-width: 375px;
-  }
-
-
+@media (width <= 767px) {
+  
   .header {
     padding: 10px;
-    grid-template-rows: 228px 0 min-content 228px;
+    grid-template-rows: calc((100vh - 192px) / 2 - 10px) 0 min-content calc((100vh - 192px) / 2 - 10px); 
+  }
+
+  .title{
+    text-shadow: 4px 4px 0 var(--accent-color);
   }
 
   .main {
@@ -390,6 +423,7 @@
     grid-template-rows: auto 1fr 1fr;
     gap: 20px;
   }
+  
 
   .why__title {
     grid-row-start: 1;
@@ -405,6 +439,7 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
 
   .gallery {
     gap: 10px;
