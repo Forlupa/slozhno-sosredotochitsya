@@ -15,7 +15,7 @@
   display: grid;
   width: 100%;
   padding: 20px 20px 20px 0;
-  grid-template-rows: 299px 0 min-content 299px;
+  grid-template-rows: calc((100vh - 130px) / 2 - 20px) 0 min-content calc((100vh - 130px) / 2 - 20px);
   position: relative;
   height: 100vh;
 }
@@ -43,9 +43,13 @@
   line-height: 130%; 
   max-width: 491px;
   justify-self: flex-end;
-  margin: 114px 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+}
+
+.header__paragraph {
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 /*стили для кнопок*/
@@ -319,10 +323,10 @@
 .footer {
   display: grid;
   width: 100%;
-  padding: 319px 20px;
   position: relative;
   justify-content: center;
   height: 100vh;
+  align-items: center;
 }
 
 @media (width <= 1023px) {
@@ -336,7 +340,6 @@
   }
 
   .header__subtitle {
-    margin: 162px 0;
     max-width: 364px;
   }
 
@@ -382,10 +385,6 @@
     grid-template-columns: 1fr 2fr;
   }
   
-
-  .footer {
-    padding: 463px 20px;
-  }
 }
 
 @media (width <= 767px) {
@@ -397,6 +396,8 @@
 
   .title{
     text-shadow: 4px 4px 0 var(--accent-color);
+    max-width: 370px;
+    font-size: 116px;
   }
 
   .main {
@@ -413,7 +414,6 @@
   }
 
   .header__subtitle {
-    margin: 55px 0;
     max-width: 355px;
   }
 
@@ -449,14 +449,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .footer {
-    padding: 286px 10px;
-  }
-
-  .title {
-    font-size: 116px;
   }
 
   .decorated-zone::before {
