@@ -159,7 +159,7 @@
 }
 
 .link:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--paragraph-color);
 }
 
 .link:focus {
@@ -248,6 +248,7 @@
 .how__subtitle {
   font-weight: 400;
   font-size: 18px;
+  color: var(--subtitle-color);
 }
 
 .how__container {
@@ -268,6 +269,7 @@
 .gallery__title {
   width: 100%;
   font-size: 18px;
+  color: var(--subtitle-color);
 }
 
 .gallery__container {
